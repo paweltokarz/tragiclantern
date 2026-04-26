@@ -101,7 +101,7 @@ endif
 ifeq ($(FATAL_WARNINGS),n)
     #
 else
-    CFLAGS += -Werror
+    CFLAGS += -Werror -Wno-missing-field-initializers
 endif
 
 ifeq ($(CONFIG_GDB),y)

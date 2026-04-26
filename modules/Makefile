@@ -53,8 +53,8 @@ ML_MODULES = \
     crop_rec \
     dev_tools/edmac \
     sd_uhs \
-    raw_video/raw_vidx \
     yolo
+#   raw_video/raw_vidx
 
 .PHONY: clean $(BUILD_DIR)
 
