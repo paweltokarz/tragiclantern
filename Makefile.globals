@@ -120,11 +120,26 @@ ifeq ($(CONFIG_PTP),y)
     ML_OBJS += $(BUILD_DIR)/ptp.o
 endif
 
+ifeq ($(CONFIG_PTP_TEST),y)
+    CFLAGS += -DCONFIG_PTP_TEST
+    ML_OBJS += $(BUILD_DIR)/ptp-test.o
+endif
+
+ifeq ($(CONFIG_PTP_NO_AUTO_INIT),y)
+    CFLAGS += -DCONFIG_PTP_NO_AUTO_INIT
+endif
+
+ifeq ($(CONFIG_PTP_MANUAL_MENU),y)
+    CFLAGS += -DCONFIG_PTP_MANUAL_MENU
+endif
+
 ifeq ($(CONFIG_PTP_CHDK),y)
+    CFLAGS += -DCONFIG_PTP_CHDK
     ML_OBJS += $(BUILD_DIR)/ptp-chdk.o
 endif
 
 ifeq ($(CONFIG_PTP_ML),y)
+    CFLAGS += -DCONFIG_PTP_ML
     ML_OBJS += $(BUILD_DIR)/ptp-ml.o
 endif
 
