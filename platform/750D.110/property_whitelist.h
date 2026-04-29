@@ -36,7 +36,14 @@ const uint32_t prop_write_allow[] =
 {
     PROP_ICU_AUTO_POWEROFF,
     PROP_REMOTE_SW1, // half shutter
-    PROP_REMOTE_SW2  // full shutter
+    PROP_REMOTE_SW2, // full shutter
+
+    // Experimental 750D Lua/photo-control work.
+    // These are used by hdr_set_raw*() through camera.iso/shutter/aperture setters.
+    // Keep this list minimal; do not enable generic Lua property.request_change.
+    PROP_ISO,
+    PROP_SHUTTER,
+    PROP_APERTURE
 };
 
 // anything not listed above will allow reads but not writes
