@@ -37,16 +37,20 @@ override CONFIG_PTP_MANUAL_MENU = y
 include ../Makefile
 
 # 750D Lua package policy:
-# keep only the final user-facing exposure bracket script in ML/scripts.
-# Keep scripts/lib/*.lua because Lua runtime uses the library path.
+# - ship only the final user-facing exposure bracket script in ML/scripts
+
+# - keep scripts/lib/*.lua because Lua runtime uses the library path
+# - use an 8.3 uppercase filename; Lua Scripts menu on 750D scans it reliably
 .PHONY: 750d_lua_scripts_only
 
 zip_contents:: 750d_lua_scripts_only
 
 750d_lua_scripts_only: $(ZIP_DIR)
-	@echo "750D: keeping only expo_bracket_750d.lua in ML/scripts"
-	find $(BUILD_DIR)/zip/ML/scripts -maxdepth 1 -type f -name '*.lua' ! -name 'expo_bracket_750d.lua' -delete
-	test -f $(BUILD_DIR)/zip/ML/scripts/expo_bracket_750d.lua
+	@echo "750D: keeping only EXPOBRKT.LUA in ML/scripts"
+	cp $(TOP_DIR)/scripts/expo_bracket_750d.lua $(BUILD_DIR)/zip/ML/scripts/EXPOBRKT.LUA
+	find $(BUILD_DIR)/zip/ML/scripts -maxdepth 1 -type f -name '*.lua' -delete
+	find $(BUILD_DIR)/zip/ML/scripts -maxdepth 1 -type f -name '*.LUA' ! -name 'EXPOBRKT.LUA' -delete
+	test -f $(BUILD_DIR)/zip/ML/scripts/EXPOBRKT.LUA
 	test -f $(BUILD_DIR)/zip/ML/scripts/lib/strict.lua
 
 .DEFAULT_GOAL := $(BUILD_DIR)/cam_complete
