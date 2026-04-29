@@ -1,4 +1,14 @@
 syntax: glob
+
+# Local firmware dumps, extracted firmware blocks and camera/build artifacts.
+# Do not publish Canon firmware files or generated binaries.
+firmware_work/
+*.FIR
+*.fir
+*.bin
+*.sym
+build.log
+
 *.gpr
 *.gar
 *.qcow2
