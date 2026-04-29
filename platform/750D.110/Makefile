@@ -35,4 +35,18 @@ override CONFIG_PTP_NO_AUTO_INIT = y
 override CONFIG_PTP_MANUAL_MENU = y
 
 include ../Makefile
+
+# 750D Lua package policy:
+# keep only the final user-facing exposure bracket script in ML/scripts.
+# Keep scripts/lib/*.lua because Lua runtime uses the library path.
+.PHONY: 750d_lua_scripts_only
+
+zip_contents:: 750d_lua_scripts_only
+
+750d_lua_scripts_only: $(ZIP_DIR)
+	@echo "750D: keeping only expo_bracket_750d.lua in ML/scripts"
+	find $(BUILD_DIR)/zip/ML/scripts -maxdepth 1 -type f -name '*.lua' ! -name 'expo_bracket_750d.lua' -delete
+	test -f $(BUILD_DIR)/zip/ML/scripts/expo_bracket_750d.lua
+	test -f $(BUILD_DIR)/zip/ML/scripts/lib/strict.lua
+
 .DEFAULT_GOAL := $(BUILD_DIR)/cam_complete
