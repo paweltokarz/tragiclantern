@@ -1,5 +1,7 @@
-Magic Lantern EOS 750D / 1.1.0 Experimental Port
-==================================================
+Tragic Lantern
+==============
+
+Experimental Magic Lantern-based development tree for EOS 750D.
 
 This repository contains an experimental Magic Lantern-based development tree
 for the Canon EOS 750D / Rebel T6i running Canon firmware 1.1.0.
