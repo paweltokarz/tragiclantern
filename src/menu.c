@@ -258,12 +258,12 @@ draw_version( void )
     bmp_printf(
         FONT( FONT_SMALL, COLOR_WHITE, COLOR_BLUE ),
         0, 0,
-        "Magic Lantern Firmware version %s (%s)\nBuilt on%s by %s\n%s",
+        "Tragic Lantern build %s (%s)\nBuilt on%s by %s\n%s",
         build_version,
         build_id,
         build_date,
         build_user,
-        "http://www.magiclantern.fm/"
+        "https://github.com/paweltokarz/tragiclantern"
     );
 
 /*
@@ -6103,7 +6103,7 @@ menu_help_go_to_selected_entry(
 static void menu_show_version(void)
 {
     big_bmp_printf(FONT(FONT_MED, 60, MENU_BG_COLOR_HEADER_FOOTER),  10,  480 - font_med.height * 3,
-        "Magic Lantern version: %s\n"
+        "Tragic Lantern build: %s\n"
         "Git commit: %s\n"
         "Built on %s by %s.",
         build_version,

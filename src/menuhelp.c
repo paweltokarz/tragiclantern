@@ -41,11 +41,11 @@ draw_beta_warning()
 {
     bmp_fill(COLOR_BLACK, 0, 0, 720, 480);
 
-    bmp_printf(FONT_CANON, 242, 53, "Magic Lantern");
+    bmp_printf(FONT_CANON, 232, 53, "Tragic Lantern");
 
     bmp_printf(FONT_MED | FONT_ALIGN_CENTER, 360, 150, "This is a development snapshot for testing purposes.");
 
-    bmp_printf(FONT_MED | FONT_ALIGN_CENTER, 360, 200, "Please report all bugs at www.magiclantern.fm.");
+    bmp_printf(FONT_MED | FONT_ALIGN_CENTER, 360, 200, "Report bugs: github.com/paweltokarz/tragiclantern");
 
     bmp_printf(FONT_MED | FONT_ALIGN_CENTER, 360, 250, "Be careful using it for production work.      ");
 
@@ -54,7 +54,7 @@ draw_beta_warning()
     bmp_printf(FONT_MED | FONT_ALIGN_CENTER, 360, 350, "(Press any camera button to enter ML settings)");
 
     big_bmp_printf(FONT_MED,  10,  410,
-        "Magic Lantern version: %s\n"
+        "Tragic Lantern build: %s\n"
         "Git commit: %s\n"
         "Built on %s by %s.",
         build_version,
